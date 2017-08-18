@@ -12,40 +12,41 @@ int main()
 
     status = GPIO42.SetPin("42",PIN_OUT,PIN_LOW);
     if(status < 0)
-        printf("%s Error Code:%d","42",status);
-    printf("GPIO42.SetPin() finished\n");
+        cout<<"GPIO"<<"42"<<" Error Code:"<<status<<endl;
+    cout<<"GPIO42.SetPin() finished"<<endl;
 
     status = GPIO43.SetPin("43",PIN_OUT,PIN_LOW);
     if(status < 0)
-        printf("%s Error Code:%d","43",status);
-    printf("GPIO43.SetPin() finished\n");
-    printf("00\n");
+        cout<<"GPIO"<<"43"<<" Error Code:"<<status<<endl;
+    cout<<"GPIO43.SetPin() finished"<<endl;
 
-    for(int i=0;i<100;i++)
+    cout<<"00"<<endl;
+
+    for(int i=0;i<10;i++)
     {
         status = GPIO42.SetPinValue(PIN_LOW);
-        printf("GPIO42.SetPinValue() status:%d\n",status);
+        cout<<"GPIO42.SetPinValue() status:"<<status<<endl;
         status = GPIO43.SetPinValue(PIN_HIGH);
-        printf("GPIO43.SetPinValue() status:%d\n",status);
-        printf("01\n");
+        cout<<"GPIO43.SetPinValue() status:"<<status<<endl;
+        cout<<"01"<<endl;
         usleep(500000);    // 500 ms
         GPIO42.SetPinValue(PIN_HIGH);
         GPIO43.SetPinValue(PIN_LOW);
-        printf("10\n");
+        cout<<"10"<<endl;
         usleep(500000);    // 500 ms
         GPIO42.SetPinValue(PIN_HIGH);
         GPIO43.SetPinValue(PIN_HIGH);
-        printf("11\n");
+        cout<<"11"<<endl;
         usleep(500000);    // 500 ms
         GPIO42.SetPinValue(PIN_LOW);
         GPIO43.SetPinValue(PIN_LOW);
-        printf("00\n");
+        cout<<"00"<<endl;
         usleep(500000);    // 500 ms
     }
 
     status = GPIO42.DelPin();
-    printf("GPIO42.DelPin() status:%d\n",status);
+    cout<<"GPIO42.DelPin() status:"<<status<<endl;
     status = GPIO43.DelPin();
-    printf("GPIO43.DelPin() status:%d\n",status);
+    cout<<"GPIO43.DelPin() status:"<<status<<endl;
     return 0;
 }
